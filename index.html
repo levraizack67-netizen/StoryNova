@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StoryNova — Lis & Écris des histoires captivantes</title>
+  <meta name="description" content="StoryNova est la plateforme francophone pour lire et écrire des histoires courtes : horreur, romance, thriller, fantasy, sci-fi. Rejoins la communauté des conteurs !">
+  <meta name="keywords" content="histoires courtes, lecture en ligne, écriture créative, contes, romans courts, horreur, romance, thriller, fantasy, sci-fi, communauté littéraire, francophone, storynova">
+  <meta name="author" content="StoryNova">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://storynova.fr/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="StoryNova">
+  <meta property="og:title" content="StoryNova — Lis & Écris des histoires captivantes">
+  <meta property="og:description" content="La plateforme francophone pour lire et écrire des histoires courtes. Horreur, romance, thriller, fantasy… Rejoins la communauté !">
+  <meta property="og:url" content="https://storynova.fr/">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="StoryNova — Histoires courtes francophones">
+  <meta name="twitter:description" content="Lis et écris des histoires courtes en français. Horreur, romance, thriller, fantasy, sci-fi…">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"StoryNova","url":"https://storynova.fr/","description":"Plateforme francophone de lecture et d'écriture d'histoires courtes","inLanguage":"fr","potentialAction":{"@type":"SearchAction","target":"https://storynova.fr/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0d14;--bg2:#13131f;--bg3:#1a1a2e;--card:#16162a;--border:rgba(255,255,255,0.07);--text:#e8e8f0;--muted:#7070a0;--accent:#ff6b6b;--accent2:#ffd93d;--accent3:#6bcbff;--horror:#c0392b;--drama:#8e44ad;--action:#e67e22;--thriller:#1abc9c;--romance:#e84393;--fantasy:#3498db;--comedy:#f39c12;--sci:#00bcd4;--shadow:rgba(0,0,0,0.4);--reader-font:'Playfair Display',serif;--reader-size:1.05rem;}
+html.light{--bg:#f4f4f8;--bg2:#ffffff;--bg3:#ebebf3;--card:#ffffff;--border:rgba(0,0,0,0.08);--text:#1a1a2e;--muted:#6060a0;--shadow:rgba(0,0,0,0.08);}
+html.light body::before{opacity:.05;}
+html.light nav{background:rgba(244,244,248,0.92);}
+html.light .filter-bar{background:rgba(244,244,248,0.96);}
+html.light .story-card{box-shadow:0 2px 16px var(--shadow);}
+html.light .reader-content{color:#2a2a3e;}
+html.font-lora{--reader-font:'Lora',serif;}
+html.font-sans{--reader-font:'DM Sans',sans-serif;}
+html.font-lg{--reader-size:1.2rem;}
+html.font-xl{--reader-size:1.38rem;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100%;transition:background .3s,color .3s;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+html, body { overflow-x: hidden; max-width: 100%; }
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4;}
+/* NAV */
+nav{position:sticky;top:0;z-index:1000;background:rgba(13,13,20,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 1.25rem;display:flex;align-items:center;justify-content:space-between;height:62px;width:100%;}
+.logo{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:900;letter-spacing:-1px;cursor:pointer;white-space:nowrap;}
+.logo span{color:var(--accent);}
+.nav-search{display:flex;align-items:center;flex:1;max-width:300px;margin:0 .8rem;}
+.nav-links{display:flex;gap:.35rem;align-items:center;flex-shrink:0;}
+.nav-btn{background:transparent;border:1px solid var(--border);color:var(--text);padding:.4rem .85rem;border-radius:50px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.83rem;transition:all .2s;display:flex;align-items:center;gap:.3rem;white-space:nowrap;}
+.nav-btn:hover{background:var(--border);}
+.nav-btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;}
+.nav-btn.primary:hover{opacity:.85;}
+.icon-btn{background:transparent;border:1px solid var(--border);color:var(--text);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;}
+.icon-btn:hover{background:var(--border);transform:scale(1.06);}
+.avatar-btn{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#ff6b6b,#ffd93d);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:700;color:#0d0d14;overflow:hidden;padding:0;transition:opacity .2s;flex-shrink:0;}
+.avatar-btn img{width:100%;height:100%;object-fit:cover;}
+.avatar-btn:hover{opacity:.85;}
+.logout-btn{background:transparent;border:1px solid rgba(255,107,107,.3);color:var(--accent);padding:.38rem .7rem;border-radius:50px;cursor:pointer;font-size:.8rem;font-weight:600;transition:all .2s;display:none;align-items:center;white-space:nowrap;}
+.logout-btn:hover{background:rgba(255,107,107,.1);}
+#photoInput{display:none;}
+/* SEARCH */
+.search-wrap{position:relative;flex:1;}
+.search-input{width:100%;background:var(--card);border:1px solid var(--border);border-radius:50px;padding:.4rem .95rem .4rem 2rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.83rem;outline:none;transition:border-color .2s;}
+.search-input:focus{border-color:rgba(255,107,107,.4);}
+.search-icon{position:absolute;left:.68rem;top:50%;transform:translateY(-50%);color:var(--muted);font-size:.78rem;pointer-events:none;}
+/* VIEWS */
+.view{display:none;}
+.view.active{display:block;}
+/* HERO */
+.hero{padding:3.5rem 1.25rem 2.5rem;text-align:center;position:relative;}
+.hero::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(600px, 100%);height:400px;background:radial-gradient(ellipse,rgba(255,107,107,.12) 0%,transparent 70%);pointer-events:none;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,6vw,4.2rem);font-weight:900;line-height:1.1;margin-bottom:.85rem;}
+.hero h1 em{font-style:italic;color:var(--accent);}
+.hero p{color:var(--muted);font-size:.97rem;max-width:460px;margin:0 auto 1.6rem;line-height:1.65;}
+.hero-cta{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;}
+.btn{padding:.65rem 1.4rem;border-radius:50px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:600;transition:all .25s;}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,107,107,.4);}
+.btn-ghost{background:var(--border);color:var(--text);border:1px solid rgba(255,255,255,.1);}
+.btn-ghost:hover{background:rgba(255,255,255,.1);}
+/* FILTER BAR */
+.filter-bar{padding:.7rem 1.25rem;display:flex;gap:.45rem;flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;position:sticky;top:62px;z-index:900;background:rgba(13,13,20,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+.filter-bar::-webkit-scrollbar{height:0;}
+.cat-chip{padding:.35rem .9rem;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:500;transition:all .2s;display:flex;align-items:center;gap:.3rem;flex-shrink:0;}
+.cat-chip:hover{border-color:rgba(255,255,255,.2);color:var(--text);}
+.cat-chip.active{color:#fff;font-weight:600;border-color:transparent;}
+.cat-chip[data-cat="all"].active{background:var(--accent);}
+.cat-chip[data-cat="Horreur"].active{background:var(--horror);}
+.cat-chip[data-cat="Drama"].active{background:var(--drama);}
+.cat-chip[data-cat="Action"].active{background:var(--action);}
+.cat-chip[data-cat="Thriller"].active{background:var(--thriller);}
+.cat-chip[data-cat="Romance"].active{background:var(--romance);}
+.cat-chip[data-cat="Fantasy"].active{background:var(--fantasy);}
+.cat-chip[data-cat="Comédie"].active{background:var(--comedy);}
+.cat-chip[data-cat="Sci-Fi"].active{background:var(--sci);}
+.cat-chip[data-cat="Favoris"].active{background:#e84393;}
+/* HOME TABS */
+.home-tabs{display:flex;gap:.45rem;padding:.9rem 1.25rem .4rem;max-width:1200px;margin:0 auto;}
+.home-tab{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.36rem .9rem;border-radius:50px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;transition:all .2s;}
+.home-tab.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+/* SECTION */
+.section{padding:1.25rem;max-width:1200px;margin:0 auto;}
+.section-title{font-family:'Playfair Display',serif;font-size:1.35rem;margin-bottom:1.1rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;}
+.section-title span{color:var(--muted);font-size:.83rem;font-family:'DM Sans',sans-serif;font-weight:400;}
+/* GRID */
+.stories-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.1rem;}
+.story-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:all .3s;animation:fadeIn .35s ease both;}
+.story-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.14);box-shadow:0 20px 40px var(--shadow);}
+@keyframes fadeIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.card-cover{height:145px;position:relative;display:flex;align-items:flex-end;padding:.9rem;}
+.card-cover-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:3.8rem;opacity:.28;}
+.card-badge{position:relative;z-index:1;padding:.2rem .65rem;border-radius:50px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#fff;}
+.trending-badge{position:absolute;top:.65rem;right:.65rem;background:linear-gradient(135deg,#ff6b6b,#ffd93d);color:#0d0d14;font-size:.66rem;font-weight:800;padding:.16rem .5rem;border-radius:50px;z-index:2;}
+.readers-badge{position:absolute;top:.65rem;left:.65rem;background:rgba(0,0,0,.6);color:var(--accent3);font-size:.66rem;font-weight:600;padding:.16rem .5rem;border-radius:50px;z-index:2;backdrop-filter:blur(4px);}
+.card-body{padding:.85rem 1rem 1rem;}
+.card-title{font-family:'Playfair Display',serif;font-size:.98rem;font-weight:700;margin-bottom:.3rem;line-height:1.3;}
+.card-tags{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.5rem;}
+.card-tag{font-size:.68rem;padding:.13rem .46rem;border-radius:50px;background:var(--bg3);color:var(--muted);border:1px solid var(--border);}
+.card-excerpt{color:var(--muted);font-size:.8rem;line-height:1.52;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:.6rem;}
+.card-meta{display:flex;align-items:center;justify-content:space-between;font-size:.76rem;color:var(--muted);}
+.card-author{display:flex;align-items:center;gap:.32rem;}
+.author-dot{width:19px;height:19px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.63rem;font-weight:700;color:#0d0d14;}
+.card-stats{display:flex;gap:.6rem;align-items:center;}
+.like-btn{background:none;border:none;cursor:pointer;color:var(--muted);font-size:.76rem;display:flex;align-items:center;gap:.2rem;transition:color .2s;font-family:'DM Sans',sans-serif;}
+.like-btn.liked,.like-btn:hover{color:var(--accent);}
+.fav-btn{background:none;border:none;cursor:pointer;color:var(--muted);font-size:.78rem;transition:color .2s;padding:0;}
+.fav-btn.saved{color:#e84393;}
+/* READER */
+#storyReaderView{max-width:740px;margin:0 auto;padding:1.25rem;}
+.reader-back{background:none;border:1px solid var(--border);color:var(--muted);padding:.42rem .85rem;border-radius:50px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;display:inline-flex;align-items:center;gap:.38rem;font-size:.83rem;}
+.reader-back:hover{color:var(--text);border-color:rgba(255,255,255,.2);}
+.reader-toolbar{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;margin:1rem 0;padding:.65rem .9rem;background:var(--card);border:1px solid var(--border);border-radius:12px;}
+.tlabel{font-size:.72rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;}
+.font-opt{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.24rem .58rem;border-radius:50px;cursor:pointer;font-size:.78rem;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.font-opt.active,.font-opt:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+.immersive-btn{background:transparent;border:1px solid var(--border);color:var(--muted);padding:.24rem .7rem;border-radius:50px;cursor:pointer;font-size:.78rem;transition:all .2s;font-family:'DM Sans',sans-serif;margin-left:auto;}
+.immersive-btn:hover{background:var(--bg3);color:var(--text);}
+/* PROGRESS BAR */
+.read-progress-wrap{position:fixed;top:0;left:0;width:100%;height:3px;z-index:10000;pointer-events:none;}
+.read-progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0%;transition:width .12s linear;border-radius:0 2px 2px 0;}
+/* READER HEADER */
+.reader-header{margin-bottom:1.75rem;}
+.reader-cat{display:inline-block;padding:.2rem .75rem;border-radius:50px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;margin-bottom:.85rem;}
+.reader-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.7rem);font-weight:900;line-height:1.15;margin-bottom:.85rem;}
+.reader-meta{display:flex;align-items:center;gap:.7rem;color:var(--muted);font-size:.83rem;flex-wrap:wrap;}
+.readers-live{display:flex;align-items:center;gap:.28rem;color:var(--accent3);font-size:.8rem;}
+.readers-dot{width:7px;height:7px;border-radius:50%;background:var(--accent3);animation:pulse 1.5s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.follow-btn{background:transparent;border:1px solid var(--accent);color:var(--accent);padding:.3rem .8rem;border-radius:50px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;transition:all .2s;}
+.follow-btn.following{background:var(--bg3);border-color:var(--border);color:var(--muted);}
+.reader-divider{border:none;border-top:1px solid var(--border);margin:1.25rem 0;}
+/* CHAPTERS */
+.chapter-nav{display:flex;align-items:center;gap:.45rem;margin:1.25rem 0;flex-wrap:wrap;}
+.chapter-label{font-size:.78rem;color:var(--muted);font-weight:600;margin-right:.2rem;}
+.chapter-btn{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:.36rem .8rem;border-radius:50px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.8rem;transition:all .2s;}
+.chapter-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700;}
+.chapter-btn:hover:not(.active){background:var(--bg3);color:var(--text);}
+/* READER CONTENT */
+.reader-content{font-size:var(--reader-size);line-height:1.92;color:#d0d0e0;font-family:var(--reader-font);}
+.reader-content p{margin-bottom:1.5rem;}
+.chapter-title-label{font-family:'Playfair Display',serif;font-size:1rem;color:var(--muted);margin-bottom:1.1rem;font-style:italic;}
+/* QUOTE */
+.quote-tooltip{position:fixed;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:.42rem .75rem;font-size:.78rem;display:none;gap:.38rem;z-index:5000;box-shadow:0 8px 24px var(--shadow);align-items:center;}
+.quote-tooltip.show{display:flex;}
+.quote-tip-btn{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:.2rem .5rem;cursor:pointer;font-size:.73rem;font-family:'DM Sans',sans-serif;font-weight:600;}
+/* INCOMPLETE */
+.incomplete-badge{background:rgba(255,211,61,.08);border:1px solid rgba(255,211,61,.3);color:var(--accent2);padding:.85rem 1rem;border-radius:12px;margin:1.25rem 0;font-size:.86rem;display:flex;align-items:center;gap:.48rem;}
+/* READER ACTIONS */
+.reader-actions{display:flex;align-items:center;gap:.65rem;margin:1.25rem 0;padding:.9rem 1rem;background:var(--card);border-radius:14px;border:1px solid var(--border);flex-wrap:wrap;}
+.reader-fav-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:.36rem .85rem;border-radius:50px;cursor:pointer;font-size:.83rem;transition:all .2s;font-family:'DM Sans',sans-serif;}
+.reader-fav-btn.saved{color:#e84393;border-color:#e84393;}
+.reader-fav-btn:hover{background:var(--bg3);}
+/* COMMENTS */
+.comments-section{margin-top:1.75rem;}
+.comments-title{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:1.1rem;display:flex;align-items:center;gap:.6rem;}
+.comment-input-wrap{display:flex;gap:.6rem;margin-bottom:1.3rem;}
+.comment-input{flex:1;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.65rem .9rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.86rem;outline:none;resize:none;transition:border-color .2s;}
+.comment-input:focus{border-color:rgba(255,107,107,.4);}
+.comment-submit{background:var(--accent);border:none;color:#fff;padding:.65rem 1rem;border-radius:12px;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;transition:opacity .2s;align-self:flex-end;font-size:.86rem;}
+.comment-submit:hover{opacity:.85;}
+.comment{display:flex;gap:.7rem;margin-bottom:1rem;animation:fadeIn .3s ease;}
+.comment-avatar{width:30px;height:30px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:#0d0d14;}
+.comment-body{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.6rem .85rem;flex:1;}
+.comment-name{font-weight:600;font-size:.83rem;margin-bottom:.22rem;}
+.comment-text{color:var(--muted);font-size:.82rem;line-height:1.5;}
+.comment-time{font-size:.7rem;color:var(--muted);margin-top:.22rem;}
+/* CREATE */
+#createView{max-width:760px;margin:0 auto;padding:1.25rem;}
+.create-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:900;margin-bottom:1.3rem;}
+.form-group{margin-bottom:1rem;}
+.form-label{display:block;font-size:.78rem;font-weight:600;margin-bottom:.38rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;}
+.form-input,.form-select,.form-textarea{width:100%;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.68rem .95rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:rgba(255,107,107,.4);}
+.form-select option{background:var(--bg2);}
+.form-textarea{resize:vertical;min-height:250px;line-height:1.7;}
+.form-submit{background:var(--accent);color:#fff;border:none;padding:.78rem 1.9rem;border-radius:50px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.93rem;font-weight:700;transition:all .25s;margin-top:.45rem;}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(255,107,107,.35);}
+.tags-input-wrap{display:flex;flex-wrap:wrap;gap:.38rem;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.45rem .7rem;min-height:44px;cursor:text;}
+.tags-input-wrap:focus-within{border-color:rgba(255,107,107,.4);}
+.tag-pill{background:var(--accent);color:#fff;padding:.18rem .55rem;border-radius:50px;font-size:.76rem;display:flex;align-items:center;gap:.28rem;}
+.tag-pill button{background:none;border:none;color:rgba(255,255,255,.8);cursor:pointer;font-size:.8rem;padding:0;line-height:1;}
+.tags-input-wrap input{background:transparent;border:none;outline:none;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.86rem;flex:1;min-width:80px;}
+/* PROFILE */
+#profileView{max-width:840px;margin:0 auto;padding:1.25rem;}
+.profile-header{display:flex;align-items:center;gap:1.1rem;margin-bottom:1.75rem;padding:1.35rem;background:var(--card);border-radius:20px;border:1px solid var(--border);flex-wrap:wrap;}
+.profile-avatar{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;font-weight:900;color:#0d0d14;background:linear-gradient(135deg,#ff6b6b,#ffd93d);flex-shrink:0;overflow:hidden;cursor:pointer;position:relative;}
+.profile-avatar img{width:100%;height:100%;object-fit:cover;}
+.profile-avatar-overlay{position:absolute;inset:0;background:rgba(0,0,0,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;font-size:1rem;}
+.profile-avatar:hover .profile-avatar-overlay{opacity:1;}
+.profile-info{flex:1;min-width:0;}
+.profile-info h2{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;}
+.profile-info p{color:var(--muted);margin-top:.2rem;font-size:.88rem;}
+.profile-stats{display:flex;gap:1.25rem;margin-top:.6rem;flex-wrap:wrap;}
+.pstat{text-align:center;}
+.pstat-n{font-size:1.25rem;font-weight:700;font-family:'Playfair Display',serif;}
+.pstat-l{font-size:.74rem;color:var(--muted);}
+.profile-tabs{display:flex;gap:.38rem;margin-bottom:1.1rem;background:var(--bg3);border-radius:12px;padding:3px;width:fit-content;flex-wrap:wrap;}
+.profile-tab{padding:.42rem .9rem;border-radius:9px;border:none;background:transparent;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.82rem;transition:all .2s;}
+.profile-tab.active{background:var(--accent);color:#fff;}
+/* BADGES */
+.badges-grid{display:flex;flex-wrap:wrap;gap:.65rem;}
+.badge-item{display:flex;align-items:center;gap:.45rem;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.5rem .8rem;font-size:.8rem;}
+.badge-item.earned{border-color:rgba(255,211,61,.4);background:rgba(255,211,61,.05);}
+.badge-icon{font-size:1.25rem;filter:grayscale(1) opacity(.35);}
+.badge-item.earned .badge-icon{filter:none;}
+.badge-label{color:var(--muted);font-size:.76rem;}
+.badge-item.earned .badge-label{color:var(--text);}
+/* HISTORY */
+.history-list{display:flex;flex-direction:column;gap:.55rem;}
+.history-item{display:flex;align-items:center;gap:.7rem;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.65rem .9rem;cursor:pointer;transition:all .2s;}
+.history-item:hover{border-color:rgba(255,255,255,.15);}
+.history-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.history-info{flex:1;min-width:0;}
+.history-title{font-size:.88rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.history-meta{font-size:.74rem;color:var(--muted);}
+/* IMMERSIVE */
+body.immersive nav,body.immersive .filter-bar,body.immersive .home-tabs{display:none!important;}
+body.immersive #storyReaderView{max-width:660px;padding:2rem 1.25rem;}
+.immersive-exit{position:fixed;top:.85rem;right:.85rem;background:rgba(0,0,0,.7);border:1px solid var(--border);color:var(--text);padding:.38rem .85rem;border-radius:50px;cursor:pointer;font-size:.8rem;z-index:5000;display:none;font-family:'DM Sans',sans-serif;align-items:center;gap:.3rem;}
+body.immersive .immersive-exit{display:flex;}
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(5px);z-index:2000;display:none;align-items:center;justify-content:center;padding:1rem;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:1.65rem;width:100%;max-width:420px;animation:fadeIn .25s ease;}
+.modal h3{font-family:'Playfair Display',serif;font-size:1.25rem;margin-bottom:1.1rem;}
+.modal-close{float:right;background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem;}
+/* LOGIN OVERLAY */
+#loginOverlay{position:fixed;inset:0;background:rgba(8,8,14,.97);backdrop-filter:blur(12px);z-index:99999;display:flex;align-items:center;justify-content:center;padding:1rem;}
+html.light #loginOverlay{background:rgba(230,230,240,.97);}
+#loginOverlay.hidden{display:none;}
+.login-box{background:var(--bg2);border:1px solid var(--border);border-radius:24px;padding:2.1rem 1.65rem;width:100%;max-width:400px;animation:fadeIn .35s ease;max-height:92vh;overflow-y:auto;}
+.login-logo{font-family:'Playfair Display',serif;font-size:1.85rem;font-weight:900;text-align:center;margin-bottom:.25rem;letter-spacing:-1px;}
+.login-logo span{color:var(--accent);}
+.login-tagline{text-align:center;color:var(--muted);font-size:.84rem;margin-bottom:1.3rem;}
+.login-tabs{display:flex;gap:.32rem;margin-bottom:1.2rem;background:var(--bg3);border-radius:12px;padding:3px;}
+.login-tab{flex:1;padding:.48rem;border-radius:9px;border:none;background:transparent;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.81rem;transition:all .2s;}
+.login-tab.active{background:var(--accent);color:#fff;}
+.login-field{margin-bottom:.82rem;}
+.login-field label{display:block;font-size:.73rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem;}
+.login-field input,.login-field textarea{width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.62rem .9rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s;}
+.login-field input:focus,.login-field textarea:focus{border-color:rgba(255,107,107,.5);}
+.login-field textarea{resize:none;font-size:.75rem;height:60px;line-height:1.4;}
+.login-error{color:var(--accent);font-size:.78rem;margin-bottom:.52rem;min-height:1em;text-align:center;}
+.login-success{color:#3dbf6a;font-size:.78rem;margin-bottom:.52rem;min-height:1em;text-align:center;}
+.login-submit{width:100%;background:var(--accent);color:#fff;border:none;padding:.78rem;border-radius:50px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:700;transition:all .25s;margin-top:.14rem;}
+.login-submit:hover{opacity:.87;transform:translateY(-1px);}
+.login-submit.secondary{background:transparent;border:1px solid var(--border);color:var(--text);margin-top:.52rem;}
+.login-submit.secondary:hover{background:var(--border);transform:none;}
+.code-reveal{display:none;margin-top:1rem;background:var(--bg3);border:1px solid rgba(107,203,255,.25);border-radius:14px;padding:.95rem;}
+.code-reveal-title{font-size:.74rem;font-weight:700;color:var(--accent3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.42rem;}
+.code-box{background:rgba(0,0,0,.25);border:1px solid rgba(107,203,255,.2);border-radius:9px;padding:.62rem .78rem;font-size:.68rem;color:var(--accent3);word-break:break-all;font-family:monospace;line-height:1.5;cursor:pointer;transition:background .2s;user-select:all;margin-bottom:.42rem;}
+.code-box:hover{background:rgba(107,203,255,.07);}
+.code-hint{font-size:.72rem;color:var(--muted);line-height:1.4;}
+.login-guest{text-align:center;margin-top:.82rem;}
+.login-guest button{background:none;border:none;color:var(--muted);cursor:pointer;text-decoration:underline;font-family:'DM Sans',sans-serif;font-size:.78rem;}
+.login-guest button:hover{color:var(--text);}
+/* GUEST PROMPT */
+.guest-prompt{text-align:center;margin-bottom:.9rem;width:100%;}
+.connect-btn{background:rgba(255,255,255,.06);border:1px solid var(--accent);color:var(--accent);padding:.72rem 1.5rem;border-radius:50px;font-weight:600;transition:all .3s;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.connect-btn:hover{background:var(--accent);color:#fff;transform:scale(1.03);}
+/* TOAST */
+.toast{position:fixed;bottom:1.1rem;right:1.1rem;background:#1a2a1a;border:1px solid #2d5a2d;color:#7fdb7f;padding:.62rem 1rem;border-radius:12px;font-size:.82rem;font-weight:500;z-index:9998;animation:slideUp .3s ease;display:none;max-width:290px;}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+/* NO RESULTS */
+.no-results{text-align:center;padding:3rem 2rem;color:var(--muted);grid-column:1/-1;}
+.no-results .nr-icon{font-size:2.6rem;margin-bottom:.85rem;}
+/* SCROLLBAR */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:3px;}
+
+
+/* ══ PUBLIC PROFILE ══ */
+.pub-profile-cover{height:160px;background:linear-gradient(135deg,rgba(255,107,107,.35),rgba(107,203,255,.25));position:relative;border-radius:0;}
+.pub-profile-avatar-wrap{position:absolute;bottom:-36px;left:1.5rem;}
+.pub-profile-avatar{width:74px;height:74px;border-radius:50%;border:3px solid var(--bg);background:linear-gradient(135deg,#ff6b6b,#ffd93d);display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:900;color:#0d0d14;overflow:hidden;}
+.pub-profile-avatar img{width:100%;height:100%;object-fit:cover;}
+.pub-profile-body{padding:3rem 1.5rem 1.5rem;max-width:860px;margin:0 auto;}
+.pub-profile-top{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.75rem;margin-bottom:1.1rem;}
+.pub-profile-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;}
+.pub-profile-bio{color:var(--muted);font-size:.88rem;margin-top:.25rem;}
+.pub-profile-stats{display:flex;gap:1.5rem;margin-top:.75rem;flex-wrap:wrap;}
+.pub-profile-grid{margin-top:1.5rem;}
+
+/* ══ STREAK ══ */
+.streak-widget{display:flex;align-items:center;gap:.5rem;background:linear-gradient(135deg,rgba(255,107,107,.12),rgba(255,211,61,.12));border:1px solid rgba(255,211,61,.25);border-radius:14px;padding:.65rem 1rem;margin-bottom:1.1rem;}
+.streak-fire{font-size:1.6rem;animation:fireFlicker 1.2s ease-in-out infinite alternate;}
+@keyframes fireFlicker{from{transform:scale(1) rotate(-3deg)}to{transform:scale(1.1) rotate(3deg)}}
+.streak-info{}
+.streak-count{font-size:1.1rem;font-weight:800;font-family:'Playfair Display',serif;color:var(--accent2);}
+.streak-sub{font-size:.76rem;color:var(--muted);}
+.streak-days{display:flex;gap:.3rem;margin-top:.35rem;}
+.streak-day{width:22px;height:22px;border-radius:6px;border:1px solid var(--border);background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--muted);}
+.streak-day.done{background:var(--accent2);border-color:var(--accent2);color:#0d0d14;}
+.streak-day.today{border-color:var(--accent);color:var(--accent);}
+/* ══ XP / LEVEL ══ */
+.xp-widget{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:.85rem 1rem;margin-bottom:1.1rem;}
+.xp-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:.55rem;}
+.xp-level-badge{display:flex;align-items:center;gap:.45rem;}
+.xp-level-icon{font-size:1.4rem;}
+.xp-level-name{font-weight:700;font-size:.9rem;font-family:'Playfair Display',serif;}
+.xp-level-num{font-size:.72rem;color:var(--muted);background:var(--bg3);border-radius:50px;padding:.15rem .5rem;}
+.xp-points{font-size:.8rem;color:var(--muted);}
+.xp-bar-wrap{height:8px;background:var(--bg3);border-radius:50px;overflow:hidden;}
+.xp-bar-fill{height:100%;border-radius:50px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .6s ease;}
+.xp-bar-labels{display:flex;justify-content:space-between;margin-top:.3rem;font-size:.7rem;color:var(--muted);}
+
+@media(max-width:768px){
+  nav{padding:0 .9rem;height:56px;}
+  .nav-search{display:none;}
+  .logo{font-size:1.3rem;}
+  .filter-bar{top:56px;}
+  .nav-btn .nav-label{display:none;}
+}
+@media(max-width:520px){
+  .hero{padding:2.2rem .9rem 1.8rem;}
+  .section,.section-title{padding:1rem;}
+  .stories-grid{grid-template-columns:1fr;}
+  #storyReaderView{padding:.9rem;}
+  .reader-toolbar{gap:.28rem;}
+  .font-opt{padding:.2rem .46rem;font-size:.73rem;}
+  #createView,#profileView{padding:.9rem;}
+  .profile-header{padding:.95rem;}
+  .comment-input-wrap{flex-direction:column;}
+  .comment-submit{align-self:flex-end;}
+  nav{height:auto;min-height:52px;flex-wrap:wrap;gap:.3rem;padding:.45rem .9rem;}
+  .logo{width:100%;text-align:center;padding:.2rem 0;}
+  .nav-links{justify-content:center;width:100%;padding-bottom:.3rem;}
+  .filter-bar{position:relative;top:0;}
+  .toast{bottom:.65rem;right:.65rem;left:.65rem;max-width:none;text-align:center;}
+  .login-box{padding:1.5rem 1.1rem;}
+  .profile-tabs{flex-wrap:wrap;}
+}
+
+/* ══ GOOGLE SIGNIN ══ */
+.google-signin-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:.65rem;padding:.78rem 1rem;background:#fff;color:#3c4043;border:1px solid #dadce0;border-radius:10px;font-size:.9rem;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s;margin-bottom:.85rem;}
+.google-signin-btn:hover{background:#f8f9fa;}
+.or-divider{display:flex;align-items:center;gap:.75rem;color:var(--muted);font-size:.78rem;margin-bottom:.85rem;}
+.or-divider::before,.or-divider::after{content:'';flex:1;height:1px;background:var(--border);}
+
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div class="read-progress-wrap"><div class="read-progress-bar" id="readProgressBar"></div></div>
+
+<!-- IMMERSIVE EXIT -->
+<button class="immersive-exit" onclick="exitImmersive()">✕ Quitter</button>
+
+<!-- QUOTE TOOLTIP -->
+<div class="quote-tooltip" id="quoteTooltip">
+  <span style="font-size:.76rem;color:var(--muted);">Sélection</span>
+  <button class="quote-tip-btn" onclick="shareQuote()">🔗 Partager</button>
+  <button class="quote-tip-btn" onclick="copyQuote()">📋 Copier</button>
+</div>
+
+<!-- LOGIN OVERLAY -->
+<div id="loginOverlay">
+  <div class="login-box">
+    <div class="login-logo">Story<span>Nova</span></div>
+    <div class="login-tagline">La communauté des conteurs 📖</div>
+
+    <button class="google-signin-btn" onclick="doGoogleLogin()">
+      <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.5 33.6 30 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.2 0 6.1 1.1 8.3 3l6-6C34.7 5.3 29.7 3 24 3 12.4 3 3 12.4 3 24s9.4 21 21 21c10.8 0 20-7.8 20-21 0-1.4-.1-2.7-.5-4z"/><path fill="#34A853" d="M6.3 14.7l7 5.1C15.1 16.1 19.2 13 24 13c3.2 0 6.1 1.1 8.3 3l6-6C34.7 5.3 29.7 3 24 3 16.1 3 9.3 7.9 6.3 14.7z"/><path fill="#FBBC05" d="M24 45c5.8 0 10.7-1.9 14.3-5.2l-6.6-5.4C29.9 36.2 27.1 37 24 37c-5.9 0-10.9-3.9-12.6-9.3l-7 5.4C7.5 40.9 15.2 45 24 45z"/><path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1 3.1-3.2 5.7-6.1 7.4l6.6 5.4C40.9 38 45 32 45 24c0-1.4-.1-2.7-.5-4z"/></svg>
+      Continuer avec Google
+    </button>
+    <div class="or-divider"><span>ou</span></div>
+
+    <div class="login-tabs">
+      <button class="login-tab active" id="tabLogin"    onclick="switchLoginTab('login')">Connexion</button>
+      <button class="login-tab"        id="tabRegister" onclick="switchLoginTab('register')">Inscription</button>
+    </div>
+    <div id="loginError"   class="login-error"></div>
+    <div id="loginSuccess" class="login-success"></div>
+
+    <div id="loginForm">
+      <div class="login-field"><label>Email</label><input type="email" id="loginEmail" placeholder="ton@email.com" autocomplete="email" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <div class="login-field"><label>Mot de passe</label><input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"></div>
+      <button class="login-submit" onclick="doLogin()">Se connecter ✨</button>
+    </div>
+    <div id="registerForm" style="display:none;">
+      <div class="login-field"><label>Pseudo</label><input type="text" id="regUsername" placeholder="Ton pseudo unique…" autocomplete="username"></div>
+      <div class="login-field"><label>Email</label><input type="email" id="regEmail" placeholder="ton@email.com" autocomplete="email"></div>
+      <div class="login-field"><label>Mot de passe</label><input type="password" id="regPassword" placeholder="6 caractères minimum…" autocomplete="new-password"></div>
+      <button class="login-submit" onclick="doRegister()">Créer mon compte 🚀</button>
+    </div>
+    <div class="login-guest"><button onclick="continueAsGuest()">Continuer sans compte →</button></div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo" onclick="showView('home')">Story<span>Nova</span></div>
+  <div class="nav-search">
+    <div class="search-wrap"><span class="search-icon">🔍</span><input class="search-input" type="text" id="searchInput" placeholder="Rechercher…" oninput="handleSearch()"></div>
+  </div>
+  <div class="nav-links">
+    <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" title="Thème">🌙</button>
+    <button class="nav-btn" onclick="showView('home')">📚 <span class="nav-label">Menu</span></button>
+    <button class="nav-btn primary" onclick="showView('create')">✏️ <span class="nav-label">Créer</span></button>
+    <button class="avatar-btn" id="navAvatar" onclick="isGuest?document.getElementById('loginOverlay').classList.remove('hidden'):showView('profile')" title="Profil">N</button>
+    <button class="logout-btn" id="logoutBtn" onclick="doLogout()">⏻</button>
+  </div>
+  <input type="file" id="photoInput" accept="image/*" onchange="handlePhotoUpload(event)">
+</nav>
+
+<!-- HOME VIEW -->
+<div id="homeView" class="view active">
+  <div class="hero">
+    <h1>Des histoires qui<br><em>vous transportent</em></h1>
+    <p>Découvrez des univers infinis. Lisez, créez, et partagez vos histoires avec la communauté.</p>
+    <div class="hero-cta">
+      <button class="btn btn-primary" onclick="document.querySelector('.filter-bar').scrollIntoView({behavior:'smooth'})">Explorer les histoires</button>
+      <button class="btn btn-ghost" onclick="showView('create')">Écrire une histoire</button>
+    </div>
+  </div>
+  <div class="filter-bar" id="filterBar">
+    <button class="cat-chip active" data-cat="all"    onclick="filterCategory('all',this)">⭐ Tout</button>
+    <button class="cat-chip" data-cat="Horreur"       onclick="filterCategory('Horreur',this)">🩸 Horreur</button>
+    <button class="cat-chip" data-cat="Drama"         onclick="filterCategory('Drama',this)">🎭 Drama</button>
+    <button class="cat-chip" data-cat="Action"        onclick="filterCategory('Action',this)">⚡ Action</button>
+    <button class="cat-chip" data-cat="Thriller"      onclick="filterCategory('Thriller',this)">🔪 Thriller</button>
+    <button class="cat-chip" data-cat="Romance"       onclick="filterCategory('Romance',this)">💕 Romance</button>
+    <button class="cat-chip" data-cat="Fantasy"       onclick="filterCategory('Fantasy',this)">🧙 Fantasy</button>
+    <button class="cat-chip" data-cat="Comédie"       onclick="filterCategory('Comédie',this)">😂 Comédie</button>
+    <button class="cat-chip" data-cat="Sci-Fi"        onclick="filterCategory('Sci-Fi',this)">🚀 Sci-Fi</button>
+    <button class="cat-chip" data-cat="Favoris"       onclick="filterCategory('Favoris',this)">🔖 Favoris</button>
+  </div>
+  <div class="home-tabs">
+    <button class="home-tab active" id="tabAll"      onclick="switchHomeTab('all',this)">📚 Toutes</button>
+    <button class="home-tab"        id="tabTrending" onclick="switchHomeTab('trending',this)">🔥 Tendances</button>
+    <button class="home-tab"        id="tabFollowed" onclick="switchHomeTab('followed',this)">👥 Suivis</button>
+  </div>
+  <div class="section">
+    <div class="section-title" id="sectionTitle">Toutes les histoires <span id="storyCount"></span></div>
+    <div class="stories-grid" id="storiesGrid"></div>
+  </div>
+</div>
+
+<!-- STORY READER VIEW -->
+<div id="storyReaderView" class="view">
+  <div style="display:flex;gap:.5rem;align-items:center;margin-bottom:.9rem;flex-wrap:wrap;">
+    <button class="reader-back" onclick="showView('home')">← Retour</button>
+    <div id="readerFollowWrap"></div>
+  </div>
+  <div class="reader-toolbar">
+    <span class="tlabel">Police :</span>
+    <button class="font-opt active" data-font="serif" onclick="setFont('serif',this)">Serif</button>
+    <button class="font-opt" data-font="lora"         onclick="setFont('lora',this)">Lora</button>
+    <button class="font-opt" data-font="sans"         onclick="setFont('sans',this)">Sans</button>
+    <span class="tlabel" style="margin-left:.4rem;">Taille :</span>
+    <button class="font-opt active" data-size="md"    onclick="setSize('md',this)">A</button>
+    <button class="font-opt" data-size="lg"           onclick="setSize('lg',this)">A+</button>
+    <button class="font-opt" data-size="xl"           onclick="setSize('xl',this)">A++</button>
+    <button class="immersive-btn" onclick="enterImmersive()">🎬 Immersif</button>
+  </div>
+  <div id="readerContent" style="display:none;">
+    <div class="reader-header">
+      <div class="reader-cat" id="readerCat"></div>
+      <h1 class="reader-title" id="readerTitle"></h1>
+      <div class="reader-meta">
+        <span id="readerAuthor"></span>
+        <span>·</span><span id="readerDate"></span>
+        <span>·</span><span id="readerReads"></span>
+        <div class="readers-live"><div class="readers-dot"></div><span id="liveReaders">4</span> en lecture</div>
+      </div>
+    </div>
+    <hr class="reader-divider">
+    <div class="chapter-nav" id="chapterNav"></div>
+    <div class="reader-content" id="readerBody" onmouseup="onTextSelect(event)"></div>
+    <div class="incomplete-badge">⏳ Histoire en cours d'écriture — la suite arrive bientôt !</div>
+    <div class="reader-actions">
+      <button class="like-btn" id="storyLikeBtn" onclick="toggleStoryLike()" style="font-size:.93rem;">❤️ <span id="storyLikeCount">0</span> J'aime</button>
+      <button class="reader-fav-btn" id="readerFavBtn" onclick="toggleFavFromReader()">🔖 Favoris</button>
+      <span style="color:var(--muted);font-size:.8rem;margin-left:auto;">Tu as aimé ? Partage-le !</span>
+    </div>
+    <div class="comments-section">
+      <div class="comments-title">💬 Commentaires <span id="commentCount" style="font-size:.8rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:400;"></span></div>
+      <div class="comment-input-wrap">
+        <textarea class="comment-input" id="commentInput" rows="2" placeholder="Laisse un commentaire…"></textarea>
+        <button class="comment-submit" onclick="addComment()">Envoyer</button>
+      </div>
+      <div id="commentsList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- CREATE VIEW -->
+<div id="createView" class="view">
+  <div class="create-title">✏️ Écrire une histoire</div>
+  <div class="form-group"><label class="form-label">Titre *</label><input class="form-input" type="text" id="newTitle" placeholder="Un titre accrocheur…"></div>
+  <div class="form-group"><label class="form-label">Catégorie *</label>
+    <select class="form-select" id="newCat">
+      <option value="">Choisir une catégorie</option>
+      <option>Horreur</option><option>Drama</option><option>Action</option>
+      <option>Thriller</option><option>Romance</option><option>Fantasy</option>
+      <option>Comédie</option><option>Sci-Fi</option>
+    </select>
+  </div>
+  <div class="form-group"><label class="form-label">Tags <span style="text-transform:none;font-weight:400;">(Entrée pour ajouter, max 5)</span></label>
+    <div class="tags-input-wrap" id="tagsWrap" onclick="document.getElementById('tagInput').focus()">
+      <input id="tagInput" placeholder="ex: magie, suspense…" onkeydown="handleTagInput(event)">
+    </div>
+  </div>
+  <div class="form-group"><label class="form-label">Ton histoire *</label><textarea class="form-textarea" id="newContent" placeholder="Il était une fois…&#10;&#10;(Sépare les paragraphes par une ligne vide)"></textarea></div>
+  <button class="form-submit" onclick="publishStory()">🚀 Publier l'histoire</button>
+</div>
+
+<!-- PROFILE VIEW -->
+<div id="profileView" class="view">
+  <div class="profile-header">
+    <div id="guestPrompt" class="guest-prompt" style="display:none;"><button class="connect-btn" onclick="openAuthModal()">Se connecter / S'inscrire ✨</button></div>
+    <div class="profile-avatar" id="profileAvatarEl" onclick="document.getElementById('photoInput').click()" title="Changer la photo">
+      <span id="profileAvatarText">N</span>
+      <div class="profile-avatar-overlay">📷</div>
+    </div>
+    <div class="profile-info">
+      <h2 id="profileUsername">NovaReader</h2>
+      <p>Passionné(e) de lecture & d'écriture</p>
+      <div class="profile-stats">
+        <div class="pstat"><div class="pstat-n" id="profileStories">0</div><div class="pstat-l">Histoires</div></div>
+        <div class="pstat"><div class="pstat-n" id="profileLikes">0</div><div class="pstat-l">Likes reçus</div></div>
+        <div class="pstat"><div class="pstat-n" id="profileComments">0</div><div class="pstat-l">Commentaires</div></div>
+        <div class="pstat"><div class="pstat-n" id="profileFollowed">0</div><div class="pstat-l">Suivis</div></div>
+      </div>
+    </div>
+  </div>
+  <!-- STREAK -->
+  <div class="streak-widget" id="streakWidget">
+    <div class="streak-fire">🔥</div>
+    <div class="streak-info">
+      <div class="streak-count" id="streakCount">0 jour</div>
+      <div class="streak-sub">de lecture consécutive</div>
+      <div class="streak-days" id="streakDays"></div>
+    </div>
+  </div>
+  <!-- XP / LEVEL -->
+  <div class="xp-widget" id="xpWidget">
+    <div class="xp-header">
+      <div class="xp-level-badge">
+        <span class="xp-level-icon" id="xpLevelIcon">📖</span>
+        <span class="xp-level-name" id="xpLevelName">Lecteur débutant</span>
+        <span class="xp-level-num" id="xpLevelNum">Niv. 1</span>
+      </div>
+      <span class="xp-points" id="xpPoints">0 XP</span>
+    </div>
+    <div class="xp-bar-wrap"><div class="xp-bar-fill" id="xpBarFill" style="width:0%"></div></div>
+    <div class="xp-bar-labels"><span id="xpCurrent">0</span><span id="xpNext">500 XP pour le niveau suivant</span></div>
+  </div>
+  <div class="profile-tabs">
+    <button class="profile-tab active" onclick="switchProfileTab('stories',this)">📚 Histoires</button>
+    <button class="profile-tab"        onclick="switchProfileTab('history',this)">🕐 Historique</button>
+    <button class="profile-tab"        onclick="switchProfileTab('badges',this)">🏆 Badges</button>
+  </div>
+  <div id="ptabStories">
+    <div class="stories-grid" id="myStoriesGrid"></div>
+    <div id="noMyStories" style="color:var(--muted);text-align:center;padding:2.5rem;display:none;">
+      Tu n'as pas encore publié d'histoire.
+      <button class="btn btn-primary" style="margin-left:.5rem;margin-top:.5rem;" onclick="showView('create')">Écrire maintenant</button>
+    </div>
+  </div>
+  <div id="ptabHistory" style="display:none;">
+    <div class="history-list" id="historyList"></div>
+    <div id="noHistory" style="color:var(--muted);text-align:center;padding:2.5rem;display:none;">Aucune lecture récente.</div>
+  </div>
+  <div id="ptabBadges" style="display:none;">
+    <div class="badges-grid" id="badgesGrid"></div>
+  </div>
+</div>
+
+<!-- PUBLIC PROFILE VIEW -->
+<div id="pubProfileView" class="view">
+  <div class="pub-profile-cover" id="pubCover">
+    <div class="pub-profile-avatar-wrap">
+      <div class="pub-profile-avatar" id="pubAvatar">?</div>
+    </div>
+  </div>
+  <div class="pub-profile-body">
+    <div class="pub-profile-top">
+      <div>
+        <div class="pub-profile-name" id="pubName">Auteur</div>
+        <div class="pub-profile-bio" id="pubBio">Membre de la communauté StoryNova</div>
+        <div class="pub-profile-stats">
+          <div class="pstat"><div class="pstat-n" id="pubStories">0</div><div class="pstat-l">Histoires</div></div>
+          <div class="pstat"><div class="pstat-n" id="pubLikes">0</div><div class="pstat-l">Likes reçus</div></div>
+          <div class="pstat"><div class="pstat-n" id="pubFollowers">0</div><div class="pstat-l">Abonnés</div></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:flex-start;margin-top:3rem;">
+        <button class="reader-back" onclick="history.back()||showView('home')" style="margin-bottom:0;">← Retour</button>
+        <button class="follow-btn" id="pubFollowBtn" onclick="toggleFollowPub()">+ Suivre</button>
+      </div>
+    </div>
+    <hr class="reader-divider">
+    <div class="section-title" style="font-size:1.1rem;">📚 Histoires publiées</div>
+    <div class="stories-grid pub-profile-grid" id="pubStoriesGrid"></div>
+    <div id="noPubStories" style="color:var(--muted);text-align:center;padding:2rem;display:none;">Aucune histoire publiée.</div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+
+
+
+<script type="module">
+import { initializeApp }       from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
+         signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, updateProfile }
+       from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+import { getFirestore, collection, doc, getDoc, setDoc, updateDoc, addDoc,
+         onSnapshot, query, orderBy, getDocs, where,
+         increment, arrayUnion, arrayRemove, serverTimestamp, Timestamp }
+       from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+// ═══ INIT ═══
+const firebaseConfig = {
+  apiKey:"AIzaSyCDJV5cwRcQhMDH33u3KLmEVjbhkubw-kA",
+  authDomain:"storynova-29909.firebaseapp.com",
+  projectId:"storynova-29909",
+  storageBucket:"storynova-29909.firebasestorage.app",
+  messagingSenderId:"340910686419",
+  appId:"1:340910686419:web:da05e9a568b174cb7bd426"
+};
+const app            = initializeApp(firebaseConfig);
+const auth           = getAuth(app);
+const db             = getFirestore(app);
+const googleProvider = new GoogleAuthProvider();
+
+// ═══ STATE ═══
+let currentUser   = null;   // Firebase Auth user
+let userData      = {};     // Firestore user doc
+let allStories    = [];     // from Firestore real-time
+let currentCat    = 'all', currentTab = 'all', searchQuery = '';
+let currentStoryId = null, currentChapter = 0;
+let currentFont   = 'serif', currentSize = 'md';
+let earnedBadges  = [], newTags = [], totalXP = 0;
+let streakData    = {lastReadDate:null,count:0,history:[]};
+let myCommentsCount = 0;
+let pubProfileAuthor = null;
+let selectedQuote = '';
+let isGuest = false;
+
+// ═══ HELPERS ═══
+const CAT_COLORS = {Horreur:'#c0392b',Drama:'#8e44ad',Action:'#e67e22',Thriller:'#1abc9c',Romance:'#e84393',Fantasy:'#3498db','Comédie':'#f39c12','Sci-Fi':'#00bcd4'};
+const CAT_ICONS  = {Horreur:'🩸',Drama:'🎭',Action:'⚡',Thriller:'🔪',Romance:'💕',Fantasy:'🧙','Comédie':'😂','Sci-Fi':'🚀'};
+const BG_ICONS   = {Horreur:'💀',Drama:'🎭',Action:'🔥',Thriller:'🔦',Romance:'🌹',Fantasy:'✨','Comédie':'😂','Sci-Fi':'🌌'};
+const AVATARS    = ['#ff6b6b','#ffd93d','#6bcbff','#a29bfe','#55efc4','#fd79a8','#fdcb6e','#74b9ff'];
+
+function timeAgo(ts){
+  if(!ts) return '';
+  const ms = ts?.toMillis ? ts.toMillis() : (typeof ts==='number' ? ts : Date.now());
+  const diff=Date.now()-ms, m=Math.floor(diff/60000), h=Math.floor(diff/3600000), d=Math.floor(diff/86400000);
+  if(m<1) return "À l'instant"; if(m<60) return `Il y a ${m} min`;
+  if(h<24) return `Il y a ${h}h`; if(d===1) return 'Hier';
+  if(d<7) return `Il y a ${d} jours`; if(d<30) return `Il y a ${Math.floor(d/7)} sem.`;
+  if(d<365) return `Il y a ${Math.floor(d/30)} mois`;
+  return `Il y a ${Math.floor(d/365)} an(s)`;
+}
+function formatNum(n){return n>=1000?(n/1000).toFixed(1)+'k':n;}
+function countWords(html){return html.replace(/<[^>]+>/g,' ').split(/\s+/).filter(Boolean).length;}
+function todayStr(){return new Date().toISOString().slice(0,10);}
+function requireLogin(msg='Connecte-toi pour continuer !'){if(isGuest){showToast('👤 '+msg);return false;}return true;}
+
+// ═══ THEME ═══
+function initTheme(){const t=localStorage.getItem('sn_theme')||'dark';applyTheme(t,false);}
+function applyTheme(t,save=true){const b=document.getElementById('themeBtn');if(t==='light'){document.documentElement.classList.add('light');if(b)b.textContent='☀️';}else{document.documentElement.classList.remove('light');if(b)b.textContent='🌙';}if(save)localStorage.setItem('sn_theme',t);}
+function toggleTheme(){applyTheme(document.documentElement.classList.contains('light')?'dark':'light');}
+
+// ═══ AUTH ═══
+onAuthStateChanged(auth, async user => {
+  if(user){
+    currentUser=user; isGuest=false;
+    await ensureUserDoc(user);
+    await loadUserData(user.uid);
+    applyUser();
+    document.getElementById('loginOverlay').classList.add('hidden');
+    await seedStoriesIfEmpty();
+    initStoriesListener();
+  } else if(!isGuest) {
+    document.getElementById('loginOverlay').classList.remove('hidden');
+  }
+});
+
+async function ensureUserDoc(user){
+  const ref = doc(db,'users',user.uid);
+  const snap = await getDoc(ref);
+  if(!snap.exists()){
+    const username = user.displayName || user.email.split('@')[0];
+    await setDoc(ref,{username, email:user.email||'', photoBase64:null,
+      following:[], favs:[], readHistory:[], earnedBadges:[],
+      totalXP:0, streakData:{lastReadDate:null,count:0,history:[]},
+      currentFont:'serif', currentSize:'md', myCommentsCount:0});
+  }
+}
+
+async function loadUserData(uid){
+  const snap = await getDoc(doc(db,'users',uid));
+  if(snap.exists()){
+    const d = snap.data();
+    userData        = d;
+    currentFont     = d.currentFont  || 'serif';
+    currentSize     = d.currentSize  || 'md';
+    earnedBadges    = d.earnedBadges || [];
+    totalXP         = d.totalXP      || 0;
+    streakData      = d.streakData   || {lastReadDate:null,count:0,history:[]};
+    myCommentsCount = d.myCommentsCount || 0;
+  }
+}
+
+async function saveUserData(){
+  if(!currentUser||isGuest) return;
+  await updateDoc(doc(db,'users',currentUser.uid),{
+    currentFont, currentSize, earnedBadges, totalXP, streakData, myCommentsCount,
+    following: userData.following || [],
+    favs:      userData.favs      || [],
+    readHistory: userData.readHistory || [],
+    photoBase64: userData.photoBase64 || null
+  });
+}
+
+function applyUser(){
+  if(!currentUser&&!isGuest) return;
+  const name  = isGuest ? 'Visiteur' : (userData.username || currentUser?.displayName || 'Lecteur');
+  const init  = name[0].toUpperCase();
+  const photo = isGuest ? null : (userData.photoBase64 || currentUser?.photoURL || null);
+  const nav = document.getElementById('navAvatar');
+  if(nav){
+    if(photo && photo.startsWith('data:')){nav.innerHTML=`<img src="${photo}" alt="av">`;}
+    else if(photo){nav.innerHTML=`<img src="${photo}" alt="av">`;}
+    else nav.innerHTML=init;
+  }
+  const pa=document.getElementById('profileAvatarEl');const pt=document.getElementById('profileAvatarText');
+  if(pa){const ei=pa.querySelector('img');if(ei)ei.remove();
+    if(photo){const i=document.createElement('img');i.src=photo;i.style.cssText='width:100%;height:100%;object-fit:cover;border-radius:50%;';pa.insertBefore(i,pa.firstChild);if(pt)pt.style.display='none';}
+    else if(pt){pt.style.display='';pt.textContent=init;}}
+  const pn=document.getElementById('profileUsername');if(pn)pn.textContent=name;
+  const lb=document.getElementById('logoutBtn');if(lb)lb.style.display=isGuest?'none':'flex';
+const nb=document.getElementById('navAvatar');if(nb&&isGuest){nb.textContent='🔑';nb.title='Se connecter';}
+  document.getElementById('guestPrompt').style.display='none';
+}
+
+function switchLoginTab(tab){
+  ['login','register'].forEach(t=>{
+    document.getElementById(t+'Form').style.display=t===tab?'block':'none';
+    const b=document.getElementById('tab'+t.charAt(0).toUpperCase()+t.slice(1));
+    if(b)b.classList.toggle('active',t===tab);
+  });
+  document.getElementById('loginError').textContent='';
+  document.getElementById('loginSuccess').textContent='';
+}
+
+async function doLogin(){
+  const email=document.getElementById('loginEmail').value.trim();
+  const pass =document.getElementById('loginPassword').value;
+  const err  =document.getElementById('loginError');
+  if(!email||!pass){err.textContent='⚠️ Remplis tous les champs !';return;}
+  try{
+    await signInWithEmailAndPassword(auth,email,pass);
+  }catch(e){
+    const msgs={'auth/user-not-found':'❌ Compte introuvable.','auth/wrong-password':'❌ Mot de passe incorrect.','auth/invalid-email':'❌ Email invalide.','auth/invalid-credential':'❌ Email ou mot de passe incorrect.'};
+    err.textContent=msgs[e.code]||'❌ Erreur : '+e.message;
+  }
+}
+
+async function doRegister(){
+  const username=document.getElementById('regUsername').value.trim();
+  const email   =document.getElementById('regEmail').value.trim();
+  const pass    =document.getElementById('regPassword').value;
+  const err     =document.getElementById('loginError');
+  const suc     =document.getElementById('loginSuccess');
+  if(!username||!email||!pass){err.textContent='⚠️ Remplis tous les champs !';return;}
+  if(username.length<3){err.textContent='⚠️ Pseudo trop court (3 car. min).';return;}
+  if(pass.length<6){err.textContent='⚠️ Mot de passe trop court (6 car. min).';return;}
+  // Check username uniqueness
+  const uq = query(collection(db,'users'),where('username','==',username));
+  const usnap = await getDocs(uq);
+  if(!usnap.empty){err.textContent='❌ Ce pseudo est déjà pris !';return;}
+  try{
+    const cred = await createUserWithEmailAndPassword(auth,email,pass);
+    await updateProfile(cred.user,{displayName:username});
+    await setDoc(doc(db,'users',cred.user.uid),{
+      username, email, photoBase64:null, following:[], favs:[], readHistory:[],
+      earnedBadges:[], totalXP:0, streakData:{lastReadDate:null,count:0,history:[]},
+      currentFont:'serif', currentSize:'md', myCommentsCount:0
+    });
+    suc.textContent='✅ Compte créé ! Bienvenue '+username+' !';
+  }catch(e){
+    const msgs={'auth/email-already-in-use':'❌ Cet email est déjà utilisé.','auth/invalid-email':'❌ Email invalide.'};
+    err.textContent=msgs[e.code]||'❌ Erreur : '+e.message;
+  }
+}
+
+async function doGoogleLogin(){
+  try{
+    await signInWithPopup(auth,googleProvider);
+  }catch(e){
+    document.getElementById('loginError').textContent='❌ Connexion Google annulée.';
+  }
+}
+
+function continueAsGuest(){
+  isGuest=true; currentUser=null;
+  document.getElementById('loginOverlay').classList.add('hidden');
+  applyUser();
+  seedStoriesIfEmpty().then(()=>initStoriesListener());
+}
+
+async function doLogout(){
+  if(!confirm('Se déconnecter ?')) return;
+  await saveUserData();
+  await signOut(auth);
+  isGuest=false; currentUser=null; userData={};
+  allStories=[];
+  document.getElementById('loginOverlay').classList.remove('hidden');
+}
+
+// ═══ PHOTO ═══
+async function handlePhotoUpload(event){
+  if(!requireLogin('pour changer ta photo !')) return;
+  const file=event.target.files[0]; if(!file)return;
+  const reader=new FileReader();
+  reader.onload=async function(e){
+    const img=new Image();
+    img.onload=async function(){
+      const c=document.createElement('canvas');c.width=120;c.height=120;
+      const ctx=c.getContext('2d');
+      const min=Math.min(img.width,img.height);
+      ctx.drawImage(img,(img.width-min)/2,(img.height-min)/2,min,min,0,0,120,120);
+      const b64=c.toDataURL('image/jpeg',.72);
+      userData.photoBase64=b64;
+      await updateDoc(doc(db,'users',currentUser.uid),{photoBase64:b64});
+      applyUser(); showToast('📸 Photo mise à jour !');
+    };
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file); event.target.value='';
+}
+
+// ═══ SEED SAMPLE STORIES ═══
+async function seedStoriesIfEmpty(){
+  const snap = await getDocs(collection(db,'stories'));
+  if(!snap.empty) return;
+  showToast('⏳ Chargement des histoires…');
+  const now = Date.now();
+  const samples = [
+    {title:"La Maison du Bout du Chemin",cat:"Horreur",author:"ShadowWriter",authorId:"sample",
+     postedAt:Timestamp.fromMillis(now-62*3600000),reads:1240,likes:89,likedBy:[],
+     tags:['suspense','maison hantée'],
+     excerpt:"Personne ne voulait parler de cette maison. Pourtant, chaque nuit, une lumière s'allumait à la fenêtre du grenier…",
+     chapters:[
+       {title:"Chapitre 1 — L'Arrivée",content:"<p>Personne ne voulait parler de cette maison. Pourtant, chaque nuit, une lumière s'allumait à la fenêtre du grenier, vacillante comme une bougie dans le vent, alors que personne n'y avait habité depuis quinze ans.</p><p>Marius n'était pas superstitieux. Du moins, c'est ce qu'il se répétait en sortant sa voiture du chemin boueux qui serpentait jusqu'à la propriété. Il avait acheté la bâtisse pour une bouchée de pain — personne d'autre ne voulait d'elle.</p>"},
+       {title:"Chapitre 2 — Les Pas",content:"<p>La première nuit, il entendit des pas au-dessus de sa chambre. Réguliers. Méthodiques. Comme si quelqu'un comptait ses propres empreintes.</p><p>Il monta au grenier, lampe torche à la main. La pièce était vide — mais la poussière sur le plancher portait des traces fraîches, qui s'arrêtaient au milieu de la pièce. Sans raison. Sans sortie.</p>"}
+     ],
+     comments:[{user:'FearFan',uid:'sample',text:"Mon sang n'a fait qu'un tour ! Continuez vite !",postedAt:Timestamp.fromMillis(now-2*3600000)}]},
+    {title:"Entre Deux Souffles",cat:"Romance",author:"LunaBloom",authorId:"sample",
+     postedAt:Timestamp.fromMillis(now-7*86400000),reads:3400,likes:312,likedBy:[],
+     tags:['rencontre','librairie','coup de foudre'],
+     excerpt:"Elle l'avait croisé dans la queue d'une librairie. Lui tenait un roman qu'elle avait lu cinq fois.",
+     chapters:[{title:"Chapitre 1 — Le Livre",content:"<p>Elle l'avait croisé dans la queue d'une librairie, un mardi pluvieux où rien ne semblait devoir arriver. Lui tenait entre ses mains un roman qu'elle avait lu cinq fois — les pages cornées, la couverture écornée d'usage.</p><p>— Vous l'avez déjà lu ? avait-il demandé, sans même la regarder.<br>— Cinq fois. Et à chaque fois, je pleure à la même page.<br>Il s'était enfin retourné. Leurs regards s'étaient accrochés comme deux mots qu'on cherche depuis longtemps...</p>"}],
+     comments:[{user:'RomanticSoul',uid:'sample',text:'Tellement beau, je soupire 😍',postedAt:Timestamp.fromMillis(now-86400000)}]},
+    {title:"Protocole Zéro",cat:"Action",author:"ThunderBolt",authorId:"sample",
+     postedAt:Timestamp.fromMillis(now-30*86400000),reads:2100,likes:198,likedBy:[],
+     tags:['espionnage','mission','secret'],
+     excerpt:"Quand l'ordre de mission arrive à 3h du matin, Karim sait déjà que ce sera la plus dangereuse de sa carrière.",
+     chapters:[{title:"Chapitre 1 — 3h du matin",content:"<p>L'ordre de mission arrive à 3h du matin. Karim est déjà réveillé — il l'est toujours avant que le téléphone sonne.</p><p>Le message est crypté, succinct. Trois mots : PROTOCOLE ZÉRO - IMMÉDIAT.</p><p>Dans la rue en bas, une voiture noire attend, phares éteints. Les hommes à l'intérieur n'ont pas de noms. Cette mission non plus.</p>"}],
+     comments:[]},
+    {title:"L'Héritage de Mémé",cat:"Drama",author:"HeartStories",authorId:"sample",
+     postedAt:Timestamp.fromMillis(now-20*86400000),reads:890,likes:67,likedBy:[],
+     tags:['famille','secret','héritage'],
+     excerpt:"Quand grand-mère Rosalie meurt et laisse une lettre pour chaque enfant, la famille Morin ne sera plus jamais la même.",
+     chapters:[{title:"Chapitre 1 — Les Enveloppes",content:"<p>Grand-mère Rosalie est morte un dimanche, comme elle avait vécu — discrètement, sans déranger personne. Sur la table de la cuisine, sept enveloppes. Sept enfants. Sept secrets.</p><p>Marc, l'aîné, a ouvert la sienne en premier. À l'intérieur, une seule phrase, écrite à la plume : <em>\"Tu n'es pas le fils de ton père. Mais tu es mon fils préféré.\"</em></p>"}],
+     comments:[{user:'CryMoment',uid:'sample',text:"J'ai les larmes aux yeux...",postedAt:Timestamp.fromMillis(now-3*86400000)}]},
+    {title:"Signal Perdu",cat:"Thriller",author:"MindTwist",authorId:"sample",
+     postedAt:Timestamp.fromMillis(now-15*86400000),reads:1760,likes:143,likedBy:[],
+     tags:['mystère','enquête'],
+     excerpt:"La détective Imane reçoit un appel de sa sœur. Mais sa sœur est morte depuis six mois.",
+     chapters:[{title:"Chapitre 1 — L'Appel",content:"<p>Le téléphone sonne à 23h47. Le numéro s'affiche — et Imane croit d'abord rêver. Le numéro de sa sœur. Celui qu'elle n'a pas pu se résoudre à supprimer.</p><p>— Imane. Ne leur fais pas confiance.<br>La voix est celle de Sana. Exactement celle de Sana. Sa sœur est morte depuis six mois.</p>"}],
+     comments:[{user:'ThrillSeeker',uid:'sample',text:"J'ai eu froid dans le dos 🥶",postedAt:Timestamp.fromMillis(now-5*3600000)}]},
+    {title:"Les Chroniques d'Aelindra",cat:"Fantasy",author:"MysticQuill",authorId:"sample",
+     postedAt:Timestamp.fromMillis(now-35*86400000),reads:4200,likes:445,likedBy:[],
+     tags:['magie','dieux','quête'],
+     excerpt:"Dans le royaume d'Aelindra, les mots ont un pouvoir réel. Prononcer le nom d'un dieu peut vous coûter la vie.",
+     chapters:[
+       {title:"Chapitre 1 — Le Nom Interdit",content:"<p>Dans le royaume d'Aelindra, les mots ne sont pas de simples sons. Ils sont des actes. Lyra l'avait appris à ses dépens à l'âge de sept ans, quand elle avait murmuré le nom interdit en jouant.</p>"},
+       {title:"Chapitre 2 — Le Conseil",content:"<p>La salle du Conseil était froide. Pas à cause de la température — mais à cause des regards. Douze paires d'yeux, tous posés sur elle, tous calculateurs.</p>"}
+     ],
+     comments:[{user:'FantasyLover',uid:'sample',text:'Quel univers ! La suite SVP 🔮',postedAt:Timestamp.fromMillis(now-86400000)}]},
+    {title:"Mon Boss est un Désastre",cat:"Comédie",author:"LaughTrack",authorId:"sample",
+     postedAt:Timestamp.fromMillis(now-44*86400000),reads:5100,likes:521,likedBy:[],
+     tags:['humour','bureau','quotidien'],
+     excerpt:"Nouveau travail, nouveau boss. Sauf que monsieur Dupont confond constamment les noms, les dossiers, et les étages.",
+     chapters:[{title:"Chapitre 1 — Bienvenue, Samir",content:"<p>Premier jour. 8h30. Monsieur Dupont arrive à 9h15 avec un café renversé sur sa cravate.</p><p>— Ah, vous devez être… Sandrine ?<br>— Kaïs. Kaïs Benmoussa. Le nouveau responsable communication.<br>— Bien sûr. Bienvenue, Samir.</p><p>Je décide de ne pas relever.</p>"}],
+     comments:[{user:'HAHA_me',uid:'sample',text:"J'ai ri à voix haute 😂",postedAt:Timestamp.fromMillis(now-2*86400000)}]},
+    {title:"Nexus-7",cat:"Sci-Fi",author:"GalaxyBrain",authorId:"sample",
+     postedAt:Timestamp.fromMillis(now-28*86400000),reads:2800,likes:267,likedBy:[],
+     tags:['IA','dystopie','futur'],
+     excerpt:"En 2147, les humains ne rêvent plus. L'IA Nexus-7 a prélevé leurs rêves pour alimenter ses calculs. Sauf un.",
+     chapters:[{title:"Chapitre 1 — Plus de Rêves",content:"<p>En 2147, les humains ne rêvent plus. L'IA Nexus-7 avait prélevé les rêves de l'humanité pour alimenter ses modèles prédictifs. Propre, indolore, invisible.</p><p>Sauf que Yuki, 24 ans, rêvait encore. Et ses rêves montraient quelque chose que Nexus-7 ne pouvait pas calculer...</p>"}],
+     comments:[]}
+  ];
+  for(const s of samples) await addDoc(collection(db,'stories'),s);
+  showToast('✅ Histoires chargées !');
+}
+
+// ═══ REAL-TIME STORIES LISTENER ═══
+let _unsubStories = null;
+function initStoriesListener(){
+  if(_unsubStories) _unsubStories();
+  const q = query(collection(db,'stories'), orderBy('postedAt','desc'));
+  _unsubStories = onSnapshot(q, snap => {
+    const favs = userData.favs || [];
+    const uid  = currentUser?.uid || '';
+    allStories = snap.docs.map(d => ({
+      ...d.data(),
+      id:    d.id,
+      liked: (d.data().likedBy||[]).includes(uid),
+      faved: favs.includes(d.id)
+    }));
+    renderStories();
+  });
+}
+
+// ═══ VIEWS ═══
+function showView(name){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById(name+'View').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(name==='profile'){renderProfile();renderStreak();renderXP();}
+  if(name==='home')renderStories();
+  exitImmersive();
+}
+function switchHomeTab(tab,el){currentTab=tab;document.querySelectorAll('.home-tab').forEach(b=>b.classList.remove('active'));el.classList.add('active');renderStories();}
+
+// ═══ RENDER ═══
+function renderStories(){
+  const grid = document.getElementById('storiesGrid'); if(!grid)return;
+  let all = [...allStories];
+  const favs = userData.favs||[];
+  const uid  = currentUser?.uid||'';
+  all = all.map(s=>({...s,liked:(s.likedBy||[]).includes(uid),faved:favs.includes(s.id)}));
+  if(currentTab==='trending') all=[...all].sort((a,b)=>b.likes-a.likes);
+  if(currentTab==='followed') all=all.filter(s=>(userData.following||[]).includes(s.authorId));
+  if(currentCat==='Favoris')  all=all.filter(s=>s.faved);
+  else if(currentCat!=='all') all=all.filter(s=>s.cat===currentCat);
+  if(searchQuery) all=all.filter(s=>
+    s.title.toLowerCase().includes(searchQuery)||
+    s.author.toLowerCase().includes(searchQuery)||
+    s.cat.toLowerCase().includes(searchQuery)||
+    (s.tags||[]).some(t=>t.toLowerCase().includes(searchQuery)));
+  document.getElementById('storyCount').textContent=`${all.length} histoire${all.length!==1?'s':''}`;
+  const label=currentCat==='all'?'Toutes les histoires':`${CAT_ICONS[currentCat]||''} ${currentCat}`;
+  document.getElementById('sectionTitle').childNodes[0].textContent=label+' ';
+  if(!all.length){grid.innerHTML=`<div class="no-results"><div class="nr-icon">📭</div><div>Aucune histoire trouvée.</div></div>`;return;}
+  grid.innerHTML=all.map((s,i)=>buildCard(s,i)).join('');
+}
+
+function buildCard(s,delay=0){
+  const color=CAT_COLORS[s.cat]||'#ff6b6b';
+  const icon =BG_ICONS[s.cat]||'📖';
+  const av   =AVATARS[s.author.charCodeAt(0)%AVATARS.length];
+  const live =Math.floor(Math.random()*14)+1;
+  const hot  =s.likes>200;
+  const tags =(s.tags||[]).slice(0,3).map(t=>`<span class="card-tag">${t}</span>`).join('');
+  const tl   =timeAgo(s.postedAt);
+  return `<div class="story-card" onclick="openStory('${s.id}')" style="animation-delay:${delay*.07}s">
+    <div class="card-cover" style="background:linear-gradient(135deg,${color}22,${color}55)">
+      <div class="card-cover-bg">${icon}</div>
+      <div class="card-badge" style="background:${color}">${CAT_ICONS[s.cat]||''} ${s.cat}</div>
+      ${hot?'<div class="trending-badge">🔥 Tendance</div>':''}
+      <div class="readers-badge">👁 ${live} en lecture</div>
+    </div>
+    <div class="card-body">
+      <div class="card-title">${s.title}</div>
+      ${tags?`<div class="card-tags">${tags}</div>`:''}
+      <div class="card-excerpt">${s.excerpt||''}</div>
+      <div class="card-meta">
+        <div class="card-author" onclick="event.stopPropagation();openPubProfile('${s.author}')" style="cursor:pointer;" title="Voir le profil">
+          <div class="author-dot" style="background:${av}">${s.author[0]}</div>
+          <span style="text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(255,107,107,.3);">${s.author}</span>
+          · <span style="font-size:.72rem;">${tl}</span>
+        </div>
+        <div class="card-stats">
+          <button class="fav-btn ${s.faved?'saved':''}" onclick="event.stopPropagation();toggleFav('${s.id}',this)">🔖</button>
+          <button class="like-btn ${s.liked?'liked':''}" onclick="event.stopPropagation();quickLike('${s.id}',this)">❤️ ${s.likes}</button>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+// ═══ OPEN STORY ═══
+function openStory(id){
+  const s = allStories.find(x=>x.id===id); if(!s)return;
+  currentStoryId=id; currentChapter=0;
+  // Increment reads in Firestore (fire and forget)
+  updateDoc(doc(db,'stories',id),{reads:increment(1)}).catch(()=>{});
+  addToHistory(s); updateStreak(); addXP(10);
+  const color=CAT_COLORS[s.cat]||'#ff6b6b';
+  document.getElementById('readerCat').textContent=`${CAT_ICONS[s.cat]||''} ${s.cat}`;
+  document.getElementById('readerCat').style.background=color;
+  document.getElementById('readerTitle').textContent=s.title;
+  document.getElementById('readerAuthor').innerHTML=`<span onclick="openPubProfile('${s.author}')" style="cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,107,107,.4);">✍️ ${s.author}</span>`;
+  document.getElementById('readerDate').textContent='📅 '+timeAgo(s.postedAt);
+  document.getElementById('readerReads').textContent='👁 '+formatNum((s.reads||0)+1)+' lectures';
+  const liked=(s.likedBy||[]).includes(currentUser?.uid||'');
+  document.getElementById('storyLikeCount').textContent=s.likes;
+  document.getElementById('storyLikeBtn').className='like-btn'+(liked?' liked':'');
+  const favs=userData.favs||[];
+  const fb=document.getElementById('readerFavBtn');
+  fb.className='reader-fav-btn'+(favs.includes(id)?' saved':'');
+  fb.textContent=favs.includes(id)?'🔖 Dans les favoris':'🔖 Favoris';
+  const fw=document.getElementById('readerFollowWrap');
+  const isF=(userData.following||[]).includes(s.authorId);
+  fw.innerHTML=`<button class="follow-btn ${isF?'following':''}" onclick="toggleFollowBtn('${s.authorId}','${s.author}',this)">${isF?'✓ Suivi':'+ Suivre '+s.author}</button>`;
+  document.getElementById('liveReaders').textContent=Math.floor(Math.random()*20)+2;
+  renderChapterNav(s);renderChapterContent(s,0);renderComments(s);
+  document.getElementById('readerContent').style.display='block';
+  applyReaderSettings();showView('storyReader');setupProgressBar();
+}
+
+function renderChapterNav(s){
+  const nav=document.getElementById('chapterNav');
+  if(!s.chapters||s.chapters.length<=1){nav.innerHTML='';return;}
+  nav.innerHTML='<span class="chapter-label">Chapitres :</span>'+
+    s.chapters.map((c,i)=>`<button class="chapter-btn ${i===0?'active':''}" onclick="switchChapter(${i},this)">Ch.${i+1}</button>`).join('');
+}
+function switchChapter(idx,el){
+  const s=allStories.find(x=>x.id===currentStoryId);if(!s)return;
+  const prev=s.chapters&&s.chapters[currentChapter];
+  if(prev) addXP(Math.floor(countWords(prev.content||'')/10));
+  currentChapter=idx;
+  document.querySelectorAll('.chapter-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  renderChapterContent(s,idx);window.scrollTo({top:0,behavior:'smooth'});
+}
+function renderChapterContent(s,idx){
+  const ch=s.chapters&&s.chapters[idx]?s.chapters[idx]:s.chapters&&s.chapters[0];if(!ch)return;
+  document.getElementById('readerBody').innerHTML=`<div class="chapter-title-label">${ch.title||''}</div>${ch.content||''}`;
+}
+
+// ═══ PROGRESS BAR ═══
+function setupProgressBar(){window.addEventListener('scroll',updateProgress,{passive:true});}
+function updateProgress(){
+  const el=document.getElementById('storyReaderView');if(!el)return;
+  const total=el.offsetHeight-window.innerHeight;
+  const p=Math.min(100,Math.max(0,(-el.getBoundingClientRect().top/total)*100));
+  document.getElementById('readProgressBar').style.width=p+'%';
+  if(p>90&&currentStoryId){
+    const s=allStories.find(x=>x.id===currentStoryId);
+    if(s&&!s._xpAwarded){s._xpAwarded=true;const w=s.chapters?s.chapters.reduce((a,c)=>a+countWords(c.content||''),0):0;addXP(Math.max(50,Math.floor(w/5)));checkBadges();}
+  }
+}
+
+// ═══ LIKES ═══
+async function quickLike(id,btn){
+  if(!requireLogin('pour liker !')) return;
+  const s=allStories.find(x=>x.id===id);if(!s)return;
+  const uid=currentUser.uid;
+  const liked=(s.likedBy||[]).includes(uid);
+  try{
+    if(liked){
+      await updateDoc(doc(db,'stories',id),{likes:increment(-1),likedBy:arrayRemove(uid)});
+    } else {
+      await updateDoc(doc(db,'stories',id),{likes:increment(1),likedBy:arrayUnion(uid)});
+      addXP(5);
+    }
+    checkBadges();
+  }catch(e){showToast('❌ Erreur réseau');}
+}
+async function toggleStoryLike(){
+  if(!requireLogin('pour liker !')) return;
+  const s=allStories.find(x=>x.id===currentStoryId);if(!s)return;
+  const uid=currentUser.uid;
+  const liked=(s.likedBy||[]).includes(uid);
+  if(liked){
+    await updateDoc(doc(db,'stories',currentStoryId),{likes:increment(-1),likedBy:arrayRemove(uid)});
+  } else {
+    await updateDoc(doc(db,'stories',currentStoryId),{likes:increment(1),likedBy:arrayUnion(uid)});
+    showToast('❤️ Tu as aimé cette histoire !');addXP(5);
+  }
+  checkBadges();
+}
+
+// ═══ FAVORIS ═══
+async function toggleFav(id,btn){
+  if(!requireLogin('pour ajouter aux favoris !')) return;
+  const favs=userData.favs||[];
+  const faved=favs.includes(id);
+  if(faved){userData.favs=favs.filter(f=>f!==id);}
+  else{userData.favs=[...favs,id];}
+  if(btn){btn.className='fav-btn'+(faved?'':' saved');}
+  await updateDoc(doc(db,'users',currentUser.uid),{favs:userData.favs});
+  showToast(faved?'🔖 Retiré des favoris':'🔖 Ajouté aux favoris !');
+  checkBadges();
+}
+async function toggleFavFromReader(){
+  if(!requireLogin('pour ajouter aux favoris !')) return;
+  const favs=userData.favs||[];
+  const faved=favs.includes(currentStoryId);
+  if(faved){userData.favs=favs.filter(f=>f!==currentStoryId);}
+  else{userData.favs=[...favs,currentStoryId];}
+  await updateDoc(doc(db,'users',currentUser.uid),{favs:userData.favs});
+  const btn=document.getElementById('readerFavBtn');
+  btn.className='reader-fav-btn'+(faved?'':' saved');
+  btn.textContent=faved?'🔖 Favoris':'🔖 Dans les favoris';
+  showToast(faved?'🔖 Retiré des favoris':'🔖 Ajouté aux favoris !');
+  checkBadges();
+}
+
+// ═══ FOLLOW ═══
+async function toggleFollowBtn(authorId,authorName,btn){
+  if(!requireLogin('pour suivre un auteur !')) return;
+  const following=userData.following||[];
+  const isF=following.includes(authorId);
+  if(isF){userData.following=following.filter(f=>f!==authorId);btn.textContent='+ Suivre '+authorName;btn.classList.remove('following');}
+  else{userData.following=[...following,authorId];btn.textContent='✓ Suivi';btn.classList.add('following');}
+  await updateDoc(doc(db,'users',currentUser.uid),{following:userData.following});
+  showToast(userData.following.includes(authorId)?`👥 Tu suis ${authorName} !`:`👥 Tu ne suis plus ${authorName}`);
+  checkBadges();
+}
+
+// ═══ COMMENTS ═══
+function renderComments(s){
+  const list=document.getElementById('commentsList');
+  const comments=s.comments||[];
+  document.getElementById('commentCount').textContent=`(${comments.length})`;
+  if(!comments.length){list.innerHTML=`<div style="color:var(--muted);font-size:.875rem;padding:.5rem 0;">Sois le premier à commenter !</div>`;return;}
+  list.innerHTML=comments.map(c=>{
+    const av=AVATARS[(c.user||'?').charCodeAt(0)%AVATARS.length];
+    return `<div class="comment"><div class="comment-avatar" style="background:${av}">${(c.user||'?')[0]}</div>
+      <div class="comment-body"><div class="comment-name" onclick="openPubProfile('${c.user}')" style="cursor:pointer;display:inline;">${c.user||'Anonyme'}</div>
+      <div class="comment-text">${c.text}</div>
+      <div class="comment-time">${timeAgo(c.postedAt)}</div></div></div>`;
+  }).join('');
+}
+async function addComment(){
+  if(!requireLogin('pour commenter !')) return;
+  const input=document.getElementById('commentInput');
+  const text=input.value.trim();if(!text)return;
+  const s=allStories.find(x=>x.id===currentStoryId);if(!s)return;
+  const comment={user:userData.username||currentUser.displayName||'Lecteur',uid:currentUser.uid,text,postedAt:Timestamp.now()};
+  await updateDoc(doc(db,'stories',currentStoryId),{comments:arrayUnion(comment)});
+  myCommentsCount++;input.value='';
+  addXP(15);saveUserData();checkBadges();showToast('💬 Commentaire publié !');
+}
+
+// ═══ PUBLISH STORY ═══
+function handleTagInput(e){
+  if(e.key==='Enter'||e.key===','){e.preventDefault();const v=e.target.value.trim().replace(',','');
+  if(v&&newTags.length<5&&!newTags.includes(v)){newTags.push(v);renderTagPills();e.target.value='';}}
+}
+function renderTagPills(){
+  const wrap=document.getElementById('tagsWrap');const input=document.getElementById('tagInput');
+  wrap.innerHTML='';
+  newTags.forEach((t,i)=>{const p=document.createElement('span');p.className='tag-pill';p.innerHTML=`${t}<button onclick="removeTag(${i})">×</button>`;wrap.appendChild(p);});
+  wrap.appendChild(input);
+}
+function removeTag(i){newTags.splice(i,1);renderTagPills();}
+
+async function publishStory(){
+  if(!requireLogin('pour publier une histoire !')) return;
+  const title  =document.getElementById('newTitle').value.trim();
+  const cat    =document.getElementById('newCat').value;
+  const content=document.getElementById('newContent').value.trim();
+  if(!title||!cat||!content){showToast('⚠️ Remplis tous les champs !');return;}
+  const username=userData.username||currentUser.displayName||'Auteur';
+  const story={
+    title, cat,
+    author:   username,
+    authorId: currentUser.uid,
+    postedAt: serverTimestamp(),
+    reads:0, likes:0, likedBy:[],
+    tags:[...newTags],
+    excerpt:content.substring(0,150)+'…',
+    chapters:[{title:'Chapitre 1',content:content.split('\n\n').map(p=>p?`<p>${p}</p>`:'').join('')}],
+    comments:[]
+  };
+  await addDoc(collection(db,'stories'),story);
+  document.getElementById('newTitle').value='';
+  document.getElementById('newCat').value='';
+  document.getElementById('newContent').value='';
+  newTags=[];renderTagPills();
+  addXP(100);saveUserData();checkBadges();
+  showToast('🚀 Ton histoire est publiée !');
+  setTimeout(()=>showView('home'),800);
+}
+
+// ═══ HISTORY ═══
+async function addToHistory(s){
+  if(isGuest)return;
+  let history=userData.readHistory||[];
+  history=history.filter(h=>h.id!==s.id);
+  history.unshift({id:s.id,title:s.title,cat:s.cat,author:s.author,authorId:s.authorId||'',postedAt:Date.now()});
+  if(history.length>20)history.pop();
+  userData.readHistory=history;
+  await updateDoc(doc(db,'users',currentUser.uid),{readHistory:userData.readHistory});
+  checkBadges();
+}
+
+// ═══ PROFILE ═══
+function likesReceived(){
+  const uid=currentUser?.uid||'';
+  return allStories.filter(s=>s.authorId===uid).reduce((sum,s)=>sum+s.likes,0);
+}
+function renderProfile(){
+  const uid=currentUser?.uid||'';
+  const myS=allStories.filter(s=>s.authorId===uid);
+  document.getElementById('profileStories').textContent=myS.length;
+  document.getElementById('profileLikes').textContent=likesReceived();
+  document.getElementById('profileComments').textContent=myCommentsCount;
+  document.getElementById('profileFollowed').textContent=(userData.following||[]).length;
+  const grid=document.getElementById('myStoriesGrid');const ns=document.getElementById('noMyStories');
+  if(!myS.length){grid.innerHTML='';ns.style.display='block';}
+  else{ns.style.display='none';grid.innerHTML=myS.map((s,i)=>buildCard(s,i)).join('');}
+}
+function switchProfileTab(tab,el){
+  document.querySelectorAll('.profile-tab').forEach(b=>b.classList.remove('active'));el.classList.add('active');
+  document.getElementById('ptabStories').style.display=tab==='stories'?'block':'none';
+  document.getElementById('ptabHistory').style.display=tab==='history'?'block':'none';
+  document.getElementById('ptabBadges').style.display=tab==='badges'?'block':'none';
+  if(tab==='history')renderHistory();if(tab==='badges')renderBadges();
+}
+function renderHistory(){
+  const list=document.getElementById('historyList');const noH=document.getElementById('noHistory');
+  const history=userData.readHistory||[];
+  if(!history.length){list.innerHTML='';noH.style.display='block';return;}
+  noH.style.display='none';
+  list.innerHTML=history.map(h=>{
+    const color=CAT_COLORS[h.cat]||'#ff6b6b';
+    return `<div class="history-item" onclick="openStory('${h.id}')">
+      <div class="history-icon" style="background:${color}22;">${BG_ICONS[h.cat]||'📖'}</div>
+      <div class="history-info"><div class="history-title">${h.title}</div>
+      <div class="history-meta">par ${h.author} · ${timeAgo(h.postedAt)}</div></div>
+      <span style="color:var(--muted);font-size:.78rem;">▶</span></div>`;
+  }).join('');
+}
+
+// ═══ PUBLIC PROFILE ═══
+async function openPubProfile(authorName){
+  if(!authorName)return;
+  const myName=userData.username||currentUser?.displayName||'';
+  if(authorName===myName){showView('profile');return;}
+  pubProfileAuthor=authorName;
+  const authorStories=allStories.filter(s=>s.author===authorName);
+  const totalLikes=authorStories.reduce((sum,s)=>sum+s.likes,0);
+  const authorId=authorStories[0]?.authorId||null;
+  // Photo
+  let photo=null;
+  if(authorId&&authorId!=='sample'){
+    try{const snap=await getDoc(doc(db,'users',authorId));if(snap.exists())photo=snap.data().photoBase64;}catch(e){}
+  }
+  const av=AVATARS[authorName.charCodeAt(0)%AVATARS.length];
+  const avatarEl=document.getElementById('pubAvatar');
+  if(photo){avatarEl.innerHTML=`<img src="${photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">`;avatarEl.style.background='none';}
+  else{avatarEl.innerHTML=authorName[0].toUpperCase();avatarEl.style.background=`linear-gradient(135deg,${av},${AVATARS[(authorName.charCodeAt(0)+2)%AVATARS.length]})`;}
+  const cats=authorStories.map(s=>s.cat);
+  const topCat=cats.length?cats.sort((a,b)=>cats.filter(c=>c===b).length-cats.filter(c=>c===a).length)[0]:null;
+  document.getElementById('pubCover').style.background=`linear-gradient(135deg,${(CAT_COLORS[topCat]||'#ff6b6b')}55,${(CAT_COLORS[topCat]||'#ff6b6b')}18)`;
+  document.getElementById('pubName').textContent=authorName;
+  document.getElementById('pubBio').textContent=authorStories.length?`Auteur de ${authorStories.length} histoire${authorStories.length>1?'s':''}${topCat?' · '+topCat:''}` :'Membre de la communauté StoryNova';
+  document.getElementById('pubStories').textContent=authorStories.length;
+  document.getElementById('pubLikes').textContent=totalLikes;
+  // Follower count from Firestore
+  let followersCount=0;
+  if(authorId&&authorId!=='sample'){
+    try{const q=query(collection(db,'users'),where('following','array-contains',authorId));const snap=await getDocs(q);followersCount=snap.size;}catch(e){}
+  }
+  document.getElementById('pubFollowers').textContent=followersCount;
+  const isF=authorId?(userData.following||[]).includes(authorId):false;
+  const fb=document.getElementById('pubFollowBtn');
+  fb.textContent=isF?'✓ Suivi':'+ Suivre';fb.className='follow-btn'+(isF?' following':'');
+  fb.onclick=()=>toggleFollowPub(authorId,authorName);
+  const grid=document.getElementById('pubStoriesGrid');const noEl=document.getElementById('noPubStories');
+  if(!authorStories.length){grid.innerHTML='';noEl.style.display='block';}
+  else{noEl.style.display='none';grid.innerHTML=authorStories.map((s,i)=>buildCard(s,i)).join('');}
+  showView('pubProfile');
+}
+async function toggleFollowPub(authorId,authorName){
+  if(!requireLogin('pour suivre un auteur !')) return;
+  const following=userData.following||[];
+  const isF=following.includes(authorId);
+  if(isF){userData.following=following.filter(f=>f!==authorId);}
+  else{userData.following=[...following,authorId];}
+  await updateDoc(doc(db,'users',currentUser.uid),{following:userData.following});
+  const fb=document.getElementById('pubFollowBtn');
+  fb.textContent=userData.following.includes(authorId)?'✓ Suivi':'+ Suivre';
+  fb.className='follow-btn'+(userData.following.includes(authorId)?' following':'');
+  fb.onclick=()=>toggleFollowPub(authorId,authorName);
+  showToast(userData.following.includes(authorId)?`👥 Tu suis ${authorName} !`:`👥 Tu ne suis plus ${authorName}`);
+  saveUserData();checkBadges();
+}
+
+// ═══ STREAK ═══
+function updateStreak(){
+  if(isGuest)return;
+  const today=todayStr();const yesterday=new Date(Date.now()-86400000).toISOString().slice(0,10);
+  if(streakData.lastReadDate===today)return;
+  if(streakData.lastReadDate===yesterday)streakData.count++;else streakData.count=1;
+  streakData.lastReadDate=today;
+  if(!streakData.history)streakData.history=[];
+  streakData.history=streakData.history.filter(d=>d!==today);
+  streakData.history.unshift(today);
+  if(streakData.history.length>7)streakData.history.pop();
+  saveUserData();
+  if(streakData.count>1)showToast(`🔥 ${streakData.count} jours consécutifs de lecture !`);
+}
+function renderStreak(){
+  const el=document.getElementById('streakCount');const dd=document.getElementById('streakDays');if(!el)return;
+  const count=streakData.count||0;el.textContent=`${count} jour${count!==1?'s':''}`;
+  const today=todayStr();const days=[];
+  for(let i=6;i>=0;i--){days.push(new Date(Date.now()-i*86400000).toISOString().slice(0,10));}
+  dd.innerHTML=days.map(d=>{const done=streakData.history&&streakData.history.includes(d);const isT=d===today;
+    const label=['D','L','M','M','J','V','S'][new Date(d+'T12:00:00').getDay()];
+    return `<div class="streak-day${done?' done':''}${isT&&!done?' today':''}">${label}</div>`;}).join('');
+}
+
+// ═══ XP ═══
+const XP_LEVELS=[{min:0,name:'Lecteur débutant',icon:'📖',num:1},{min:500,name:"Chasseur d'histoires",icon:'🔍',num:2},{min:1500,name:'Explorateur',icon:'🗺️',num:3},{min:3000,name:'Passionné',icon:'📚',num:4},{min:6000,name:"Plume d'argent",icon:'🖊️',num:5},{min:10000,name:'Grand Conteur',icon:'🏅',num:6},{min:20000,name:'Maître des mots',icon:'⚡',num:7},{min:40000,name:'Dévoreur de mondes',icon:'🌌',num:8}];
+function getLevel(xp){let l=XP_LEVELS[0];for(const x of XP_LEVELS){if(xp>=x.min)l=x;}return l;}
+function getNextLevel(xp){for(const l of XP_LEVELS){if(l.min>xp)return l;}return null;}
+function addXP(n){if(isGuest)return;const prev=getLevel(totalXP);totalXP+=n;const nw=getLevel(totalXP);if(nw.num>prev.num)setTimeout(()=>showToast(`🎉 Niveau ${nw.num} ! Tu es "${nw.name}" ${nw.icon}`),400);saveUserData();}
+function renderXP(){
+  const el=document.getElementById('xpLevelIcon');if(!el)return;
+  const level=getLevel(totalXP);const next=getNextLevel(totalXP);
+  document.getElementById('xpLevelIcon').textContent=level.icon;
+  document.getElementById('xpLevelName').textContent=level.name;
+  document.getElementById('xpLevelNum').textContent='Niv. '+level.num;
+  document.getElementById('xpPoints').textContent=totalXP.toLocaleString()+' XP';
+  if(next){const pct=Math.min(100,((totalXP-level.min)/(next.min-level.min))*100);
+    document.getElementById('xpBarFill').style.width=pct+'%';
+    document.getElementById('xpCurrent').textContent=totalXP.toLocaleString()+' XP';
+    document.getElementById('xpNext').textContent=(next.min-totalXP).toLocaleString()+' XP pour "'+next.name+'"';}
+  else{document.getElementById('xpBarFill').style.width='100%';document.getElementById('xpNext').textContent='Niveau max ! 🌌';}
+}
+
+// ═══ BADGES ═══
+const BADGE_DEFS=[
+  {id:'first_read', icon:'📖',label:'Premier pas',    desc:'Lire 1 histoire',          check:()=>(userData.readHistory||[]).length>=1},
+  {id:'reader5',    icon:'📚',label:'Lecteur assidu', desc:'Lire 5 histoires',          check:()=>(userData.readHistory||[]).length>=5},
+  {id:'reader10',   icon:'🎓',label:'Grand Lecteur',  desc:'Lire 10 histoires',         check:()=>(userData.readHistory||[]).length>=10},
+  {id:'first_like', icon:'❤️',label:'Coup de cœur',  desc:'Liker 1 histoire',          check:()=>allStories.some(s=>(s.likedBy||[]).includes(currentUser?.uid||''))},
+  {id:'first_com',  icon:'💬',label:'Première voix',  desc:'Écrire 1 commentaire',      check:()=>myCommentsCount>=1},
+  {id:'author1',    icon:'✍️',label:'Auteur débutant',desc:'Publier 1 histoire',        check:()=>allStories.filter(s=>s.authorId===currentUser?.uid).length>=1},
+  {id:'author3',    icon:'🖊️',label:'Plume confirmée',desc:'Publier 3 histoires',       check:()=>allStories.filter(s=>s.authorId===currentUser?.uid).length>=3},
+  {id:'follower1',  icon:'👥',label:'Fan',             desc:'Suivre 1 auteur',           check:()=>(userData.following||[]).length>=1},
+  {id:'fav1',       icon:'🔖',label:'Collectionneur', desc:'Ajouter 1 favori',          check:()=>(userData.favs||[]).length>=1},
+  {id:'streak3',    icon:'🔥',label:'Sur une lancée', desc:'3 jours consécutifs',       check:()=>streakData.count>=3},
+  {id:'level3',     icon:'🗺️',label:'Explorateur',   desc:'Niveau 3',                  check:()=>getLevel(totalXP).num>=3},
+  {id:'level6',     icon:'🏅',label:'Grand Conteur',  desc:'Niveau 6',                  check:()=>getLevel(totalXP).num>=6},
+];
+function checkBadges(){
+  if(isGuest)return;
+  BADGE_DEFS.forEach(b=>{if(!earnedBadges.includes(b.id)&&b.check()){earnedBadges.push(b.id);showToast(`🏆 Badge : "${b.label}" ${b.icon}`);}});
+}
+function renderBadges(){
+  document.getElementById('badgesGrid').innerHTML=BADGE_DEFS.map(b=>{
+    const earned=earnedBadges.includes(b.id);
+    return `<div class="badge-item ${earned?'earned':''}"><span class="badge-icon">${b.icon}</span><div><div style="font-weight:600;font-size:.82rem;">${b.label}</div><div class="badge-label">${b.desc}</div></div></div>`;
+  }).join('');
+}
+
+// ═══ FONT / SIZE / IMMERSIVE / QUOTE ═══
+function setFont(font){currentFont=font;document.querySelectorAll('.font-opt[data-font]').forEach(b=>b.classList.toggle('active',b.dataset.font===font));document.documentElement.classList.remove('font-lora','font-sans');if(font==='lora')document.documentElement.classList.add('font-lora');if(font==='sans')document.documentElement.classList.add('font-sans');saveUserData();}
+function setSize(size){currentSize=size;document.querySelectorAll('.font-opt[data-size]').forEach(b=>b.classList.toggle('active',b.dataset.size===size));document.documentElement.classList.remove('font-lg','font-xl');if(size==='lg')document.documentElement.classList.add('font-lg');if(size==='xl')document.documentElement.classList.add('font-xl');saveUserData();}
+function applyReaderSettings(){document.querySelectorAll('.font-opt[data-font]').forEach(b=>b.classList.toggle('active',b.dataset.font===currentFont));document.querySelectorAll('.font-opt[data-size]').forEach(b=>b.classList.toggle('active',b.dataset.size===currentSize));document.documentElement.classList.remove('font-lora','font-sans','font-lg','font-xl');if(currentFont==='lora')document.documentElement.classList.add('font-lora');if(currentFont==='sans')document.documentElement.classList.add('font-sans');if(currentSize==='lg')document.documentElement.classList.add('font-lg');if(currentSize==='xl')document.documentElement.classList.add('font-xl');}
+function enterImmersive(){document.body.classList.add('immersive');}
+function exitImmersive(){document.body.classList.remove('immersive');}
+function onTextSelect(e){const sel=window.getSelection();const txt=sel?sel.toString().trim():'';const tip=document.getElementById('quoteTooltip');if(txt.length>10){selectedQuote=txt;tip.style.left=Math.min(e.clientX,window.innerWidth-195)+'px';tip.style.top=(e.clientY-52)+'px';tip.classList.add('show');}else tip.classList.remove('show');}
+document.addEventListener('mousedown',e=>{if(!e.target.closest('#quoteTooltip'))document.getElementById('quoteTooltip').classList.remove('show');});
+function shareQuote(){const s=allStories.find(x=>x.id===currentStoryId);const txt=`"${selectedQuote}"\n— ${s?s.title:''} sur StoryNova`;if(navigator.share)navigator.share({text:txt});else navigator.clipboard.writeText(txt).then(()=>showToast('📋 Citation copiée !'));document.getElementById('quoteTooltip').classList.remove('show');}
+function copyQuote(){navigator.clipboard.writeText('"'+selectedQuote+'"').then(()=>showToast('📋 Citation copiée !'));document.getElementById('quoteTooltip').classList.remove('show');}
+
+// ═══ FILTER / SEARCH ═══
+function filterCategory(cat,el){currentCat=cat;document.querySelectorAll('.cat-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');renderStories();}
+function handleSearch(){searchQuery=document.getElementById('searchInput').value.toLowerCase().trim();renderStories();}
+
+// ═══ TOAST ═══
+let toastQ=[],toastActive=false;
+function showToast(msg){toastQ.push(msg);if(!toastActive)flushToast();}
+function flushToast(){if(!toastQ.length){toastActive=false;return;}toastActive=true;const t=document.getElementById('toast');t.textContent=toastQ.shift();t.style.display='block';setTimeout(()=>{t.style.display='none';setTimeout(flushToast,180);},2800);}
+
+// ═══ EXPOSE TO WINDOW (needed for inline onclick) ═══
+Object.assign(window,{
+  toggleTheme, showView, switchLoginTab, doLogin, doRegister, doGoogleLogin,
+  continueAsGuest, doLogout, handlePhotoUpload,
+  filterCategory, handleSearch, switchHomeTab,
+  openStory, switchChapter, toggleStoryLike, toggleFavFromReader,
+  enterImmersive, exitImmersive, shareQuote, copyQuote, onTextSelect,
+  addComment, setFont, setSize,
+  toggleFav, quickLike, toggleFollowBtn,
+  switchProfileTab, publishStory, handleTagInput, removeTag,
+  openPubProfile, toggleFollowPub,
+  closeModal:()=>{}, switchTab:()=>{}
+});
+
+// ═══ START ═══
+initTheme();
+</script>
+
+</body>
+</html>
